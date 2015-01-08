@@ -27,5 +27,6 @@ for haber in news:
     title = title.html
     twcount = haber.find_by_xpath("div[@class='tweet-count']").first.find_by_tag("a").html
     df_news.loc[len(df_news)+1]=[href,title,int(twcount)]
-    
+
+df_news['twcount']=df_news['twcount'].astype(int)
 df_news.to_csv("haberler.csv",encoding='utf-8',index=False)
