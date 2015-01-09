@@ -14,8 +14,9 @@ browser = Browser('firefox')
 browser.visit("http://nediyor.com/haberler/turkiye/")
 
 #sayfanin sonuna git - her defasinda 18 yeni haber yukleniyor
-for i in range(100):
+for i in range(600):
     browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    print i
     time.sleep(5)
 
 main = browser.find_by_id("brick-wrap").first
@@ -29,4 +30,4 @@ for haber in news:
     df_news.loc[len(df_news)+1]=[href,title,int(twcount)]
 
 df_news['twcount']=df_news['twcount'].astype(int)
-df_news.to_csv("haberler.csv",encoding='utf-8',index=False)
+df_news.to_csv("haberler2.csv",encoding='utf-8',index=False)
