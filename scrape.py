@@ -1,13 +1,32 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan 08 15:41:01 2015
+
+@author: Talha
+"""
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 import time
 
+#initialize variables
 df = pd.DataFrame(columns=('title', 'twcount', 'href'))
-
 driver = webdriver.Chrome()
+
+# nediyor.com Turkiye haberleri sayfasi "http://nediyor.com/haberler/turkiye/"
 driver.get('file:///Users/toz/Documents/workspace/TR-2014/nediyor.html')
-time.sleep(60)
+time.sleep(60) #sayfanin tamamen yuklenmesini beklememiz gerekiyor
+
+"""
+# Post islem icin benim indirmis oldugum nediyor.html'i kullanabilirsiniz
+# eger kendiniz indirmek isterseniz lazy loading problemini cozmek icin: 
+# sayfanin sonuna git - her defasinda 18 yeni haber yukleniyor
+for i in range(600):
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(5)
+"""
+
 news = driver.find_elements_by_xpath("//div[@class='brick brick-big']")
 for i,haber in enumerate(news):
     title = haber.find_element_by_tag_name("h2").find_element_by_tag_name("a")
@@ -16,4 +35,4 @@ for i,haber in enumerate(news):
     df.loc[len(df)+1]=[title.text , twcount, title.get_attribute("href")]
 
 df['twcount']=df['twcount'].astype(int)
-df.to_csv("TR-news_2013-05-21-to-2015-01-08.csv",encoding='utf-8',index=False)
+df.to_csv("TR-news.csv",encoding='utf-8',index=False)
