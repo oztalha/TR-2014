@@ -23,8 +23,15 @@ On the news that made to the headlines we collected about two years of curated t
 ### Commentator Statistics
 * `commentators-stats.py` calculates and visualizes the following statistics: 
    * Comment counts by commentator
+   * Group commentators by profession
+   * Monthly commentator performance
    * ...
 
 ## Initial Findings
 * Daily comment count visualization is [here](http://talhaoz.com/news/)
   
+## Issues
+### Erroneous Data Files
+* `nediyor_news` html files:
+  * multiple urls in twtext of first 45447 rows are concatanated without a space character in between
+  * ['index.html.358.2', 'index.html.377', 'index.html.397.3', 'index.html.492.8', 'index.html.787.6', 'index.html.989.1']
