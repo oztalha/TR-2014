@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 def dailyNediyor():
     day = r'http://nediyor.com/2015/01/09/'
-    with open('news.csv','rU') as f:
+    with open('TR-news.csv','rU') as f:
         f.readline()
         mydata = csv.reader(f)
         dailycount = 0
@@ -21,7 +21,7 @@ def dailyNediyor():
 
 def dailyTheplazz():
     day = r'1/11/2015 0:00'
-    with open('US-news-dates-sorted.csv','rU') as f:
+    with open('US-news.csv','rU') as f:
         f.readline() #skip the header line
         mydata = csv.reader(f)
         dailycount = 0

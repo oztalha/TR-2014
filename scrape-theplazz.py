@@ -34,4 +34,4 @@ for i,haber in enumerate(news):
     df.loc[len(df)+1]=[title.text , twcount, title.get_attribute("href")]
 
 df['twcount']=df['twcount'].astype(int)
-df.to_csv("US-news.csv",encoding='utf-8',index=False)
+df.to_csv("US-news-org.csv",encoding='utf-8',index=False)

@@ -29,3 +29,4 @@ for r in rows:
 
 df['twcount']=df['twcount'].astype(int)
 df.to_csv("US-news-dates.csv",encoding='utf-8',index=False)
+#finally this file ("US-news-dates.csv") is sorted by date and renamed as US-news.csv
