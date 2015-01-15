@@ -65,3 +65,6 @@ def theplazz_news():
     
     df.to_csv("US-commentators.csv",encoding='utf-8',index=False)
     print errors
+    
+# order commentators by total number of comments in two years
+df.groupby(by='twhandle')['twtext'].count().order(ascending=False).to_csv('TR-tweep-comment-counts.csv')
