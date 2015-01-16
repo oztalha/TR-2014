@@ -65,6 +65,9 @@ def theplazz_news():
     
     df.to_csv("US-commentators.csv",encoding='utf-8',index=False)
     print errors
-    
-# order commentators by total number of comments in two years
-df.groupby(by='twhandle')['twtext'].count().order(ascending=False).to_csv('TR-tweep-comment-counts.csv')
+
+if __name__ == '__main__':
+    df = pd.read_csv('US-commentators.csv',encoding='utf-8')
+    # df = pd.read_csv('TR-commentators.csv',encoding='utf-8',skiprows=[143914])
+    # order commentators by total number of comments in two years
+    df.groupby(by='twhandle')['twtext'].count().order(ascending=False).to_csv('US-tweep-comment-counts.csv',header=True)
