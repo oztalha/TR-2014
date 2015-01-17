@@ -15,7 +15,7 @@ df = pd.DataFrame(columns=('title', 'twcount', 'href'))
 driver = webdriver.Chrome()
 
 # thePlazz.com Headlines 'http://theplazz.com/category/headlines/'
-driver.get('file:///Users/toz/Documents/workspace/TR-2014/thePlazz.html')
+driver.get('file:///Users/toz/Documents/workspace/TR-2014/data/thePlazz.html')
 time.sleep(60) #have to wait till the page is loaded completely
 
 # This is how I retrieved thePlazz.html file, i.e.
